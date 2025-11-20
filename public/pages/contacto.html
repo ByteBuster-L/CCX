@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Escuela [Nombre]</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        escuela: {
+                            main: '#1E3A8A', 
+                            accent: '#F59E0B', 
+                            light: '#EFF6FF', 
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gsap-fade-up { opacity: 0; transform: translateY(20px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-escuela-main flex items-center gap-2">
+                        <span class="text-4xl">🎓</span> ESCUELA [NOMBRE]
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-600 hover:text-escuela-main font-medium transition">Inicio</a>
+                    <a href="nosotros.html" class="text-gray-600 hover:text-escuela-main font-medium transition">Nosotros</a>
+                    <a href="#" class="text-gray-600 hover:text-escuela-main font-medium transition">Oferta Educativa</a>
+                    <a href="contacto.html" class="bg-escuela-main text-white px-5 py-2 rounded-full hover:bg-blue-900 transition font-medium">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-escuela-main pt-32 pb-12 text-center text-white">
+        <h1 class="text-4xl font-bold mb-2 gsap-fade-up">Ponte en Contacto</h1>
+        <p class="text-blue-100 gsap-fade-up">Estamos listos para resolver tus dudas</p>
+    </div>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <div class="gsap-fade-up space-y-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Información Institucional</h2>
+                    <p class="text-gray-600 mb-6">Visita nuestras instalaciones para conocer más sobre nuestro modelo educativo y recorrer el campus.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                        <div class="text-escuela-accent text-2xl">📍</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Ubicación</h3>
+                            <p class="text-sm text-gray-600">Av. Principal #123, Col. Centro<br>Ciudad de México, CP 12345</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                        <div class="text-escuela-accent text-2xl">📞</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Teléfonos</h3>
+                            <p class="text-sm text-gray-600">Oficina: (55) 1234-5678<br>WhatsApp: (55) 9876-5432</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                        <div class="text-escuela-accent text-2xl">⏰</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Horario de Atención</h3>
+                            <p class="text-sm text-gray-600">Lunes a Viernes: 7:00 AM - 3:00 PM<br>Sábados: Previa Cita</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gsap-fade-up bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Envíanos un Mensaje</h2>
+                
+                <form id="contactForm" class="space-y-5">
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-escuela-main focus:border-escuela-main outline-none transition" placeholder="Juan Pérez">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                            <input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-escuela-main focus:border-escuela-main outline-none transition" placeholder="(55) 0000 0000">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                        <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-escuela-main focus:border-escuela-main outline-none transition" placeholder="correo@ejemplo.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Asunto</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-escuela-main focus:border-escuela-main outline-none transition bg-white">
+                            <option>Informes Generales</option>
+                            <option>Proceso de Inscripción</option>
+                            <option>Caja / Pagos</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                        <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-escuela-main focus:border-escuela-main outline-none transition" placeholder="¿En qué podemos ayudarte?"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-escuela-accent text-white font-bold py-3 rounded-lg hover:bg-yellow-600 transition transform hover:-translate-y-1 shadow-lg">
+                        Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full h-96 bg-gray-200">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d393.39298075993577!2d-97.96009697082928!3d20.275174860008832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d08589c44e7e4d%3A0xf74fcac07e0c95ad!2sCentro%20de%20Computaci%C3%B3n%20Xicotepec!5e0!3m2!1ses-419!2smx!4v1763614332970!5m2!1ses-419!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm">© 2024 Escuela [Nombre]. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Animación simple de entrada
+        gsap.to(".gsap-fade-up", {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+</html>
