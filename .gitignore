@@ -1,0 +1,16 @@
+# --- REGLAS MAESTRAS ---
+node_modules/
+**/node_modules/
+backend-escuela/node_modules/
+
+# --- COSAS DE SISTEMA ---
+.DS_Store
+Thumbs.db
+.env
+backend-escuela/.env
+
+# --- CARPETAS TEMPORALES ---
+.tmp/
+**/build/
+**/dist/
+.strapi/

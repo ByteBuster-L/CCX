@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCX  Inicio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        escuela: {
+                            main: '#1E3A8A', 
+                            accent: '#F59E0B', 
+                            light: '#EFF6FF', 
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-escuela-main flex items-center gap-2">
+                        <span class="text-4xl">CCX</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="pages/nosotros.html" class="text-gray-600 hover:text-escuela-main font-medium transition">Nosotros</a>
+                    <a href="#" class="text-gray-600 hover:text-escuela-main font-medium transition">Oferta Educativa</a>
+                    <a href="#" class="text-gray-600 hover:text-escuela-main font-medium transition">Avisos</a>
+                    <a href="pages/contacto.html" class="bg-escuela-main text-white px-5 py-2 rounded-full hover:bg-blue-900 transition font-medium">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative bg-escuela-light h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-100 rounded-bl-[100px] -z-10 opacity-50"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center mt-16">
+            <div class="text-left">
+                <span class="gsap-hero inline-block py-1 px-3 rounded-full bg-blue-100 text-escuela-main text-sm font-semibold mb-4">
+                    Inscripciones Abiertas 2024-2025
+                </span>
+                <h1 class="gsap-hero text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                    Formando a los <span class="text-escuela-main">Líderes</span> del Futuro
+                </h1>
+                <p class="gsap-hero text-lg text-gray-600 mb-8 max-w-lg">
+                    Una educación integral con valores, tecnología e innovación. Descubre nuestro modelo educativo único.
+                </p>
+                <div class="gsap-hero flex flex-col sm:flex-row gap-4">
+                    <button class="bg-escuela-accent text-white px-8 py-4 rounded-lg font-bold shadow-lg hover:bg-yellow-600 transition transform hover:-translate-y-1">
+                        Agendar Visita
+                    </button>
+                    <button class="border-2 border-escuela-main text-escuela-main px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition">
+                        Ver Oferta Educativa
+                    </button>
+                </div>
+            </div>
+            
+            <div class="gsap-hero relative hidden md:block">
+                <div class="w-full h-96 bg-gray-300 rounded-2xl shadow-2xl flex items-center justify-center text-gray-500">
+                    <span class="text-xl">FOTO ESTUDIANTES (600x500)</span>
+                </div>
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-l-4 border-escuela-accent">
+                    <p class="font-bold text-2xl text-gray-900">+25 Años</p>
+                    <p class="text-sm text-gray-500">De excelencia académica</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Nuestra Oferta Educativa</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Acompañamos a tus hijos en cada etapa de su crecimiento.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="gsap-card bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl transition duration-300 cursor-pointer group">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-escuela-main group-hover:text-white transition">🧸</div>
+                    <h3 class="text-xl font-bold mb-3">Preescolar</h3>
+                    <p class="text-gray-600 mb-4">Desarrollo de habilidades motrices y sociales en un ambiente seguro y divertido.</p>
+                    <a href="#" class="text-escuela-main font-semibold hover:underline">Leer más →</a>
+                </div>
+
+                <div class="gsap-card bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl transition duration-300 cursor-pointer group">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-escuela-accent group-hover:text-white transition">✏️</div>
+                    <h3 class="text-xl font-bold mb-3">Primaria</h3>
+                    <p class="text-gray-600 mb-4">Aprendizaje bilingüe y fomento del pensamiento crítico y creativo.</p>
+                    <a href="#" class="text-escuela-main font-semibold hover:underline">Leer más →</a>
+                </div>
+
+                <div class="gsap-card bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl transition duration-300 cursor-pointer group">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-green-600 group-hover:text-white transition">🔬</div>
+                    <h3 class="text-xl font-bold mb-3">Secundaria</h3>
+                    <p class="text-gray-600 mb-4">Preparación académica rigurosa con enfoque en tecnología y ciencias.</p>
+                    <a href="#" class="text-escuela-main font-semibold hover:underline">Leer más →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-20 bg-gray-50" id="noticias-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Avisos Recientes</h2>
+            </div>
+            
+            <div id="contenedor-noticias" class="grid md:grid-cols-3 gap-8">
+                <p class="text-center col-span-3 text-gray-500">Cargando noticias...</p>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm">© 2024 Escuela [Nombre]. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        // Registrar ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animación del Hero (Secuencial)
+        const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+        
+        
+        // Animación de las Cards al hacer scroll
+       
+    </script>
+   <script>
+    // URL de tu Backend
+    const API_URL = 'http://localhost:1337';
+
+    async function cargarNoticias() {
+        // Obtenemos el contenedor
+        const contenedor = document.getElementById('contenedor-noticias');
+        if (!contenedor) return; // Si no existe el div, no hacemos nada
+
+        try {
+            // Petición al servidor
+            const response = await fetch(`${API_URL}/api/noticias?populate=*`);
+            
+            // Si el servidor responde con error (ej. no está prendido Strapi)
+            if (!response.ok) throw new Error("No se pudo conectar con Strapi");
+
+            const data = await response.json();
+            const listaNoticias = data.data; 
+
+            // Limpiamos
+            contenedor.innerHTML = '';
+
+            if (!listaNoticias || listaNoticias.length === 0) {
+                contenedor.innerHTML = '<p class="col-span-3 text-center text-gray-500">No hay avisos recientes.</p>';
+                return;
+            }
+
+            // Renderizamos las tarjetas
+            listaNoticias.forEach(item => {
+                // Strapi v5 usa documentId, v4 usa id
+                const idNoticia = item.documentId || item.id;
+                const datos = item.attributes || item; 
+
+                // Imagen
+                let urlImagen = 'https://via.placeholder.com/400x250';
+                if (datos.imagen) {
+                    const media = Array.isArray(datos.imagen) ? datos.imagen[0] : datos.imagen;
+                    if (media?.url) urlImagen = `${API_URL}${media.url}`;
+                }
+
+                // Texto corto
+                let textoResumen = "Ver detalles...";
+                if (typeof datos.contenido === 'string') {
+                    textoResumen = datos.contenido.substring(0, 100) + '...';
+                }
+
+                // HTML de la tarjeta
+                const cardHTML = `
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col h-full">
+                        <div class="h-48 overflow-hidden">
+                            <img src="${urlImagen}" alt="${datos.titulo}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <span class="text-xs font-bold text-escuela-accent mb-2 block">📅 ${datos.fecha || 'Reciente'}</span>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">${datos.titulo}</h3>
+                            <p class="text-gray-600 text-sm mb-4 flex-1">${textoResumen}</p>
+                            <a href="pages/detalles.html?id=${idNoticia}" class="text-escuela-main font-bold mt-auto hover:underline">
+                                Leer más →
+                            </a>
+                        </div>
+                    </div>
+                `;
+                contenedor.innerHTML += cardHTML;
+            });
+
+        } catch (error) {
+            console.error('Error silencioso:', error);
+            // Si falla, mostramos un mensaje bonito en lugar de romper todo
+            contenedor.innerHTML = '<div class="col-span-3 text-center text-gray-400 py-10">Cargando noticias... (Asegúrate de tener Strapi encendido)</div>';
+        }
+    }
+
+    // Ejecutar cuando cargue la página
+    document.addEventListener('DOMContentLoaded', cargarNoticias);
+</script>
+</body>
+</html>
