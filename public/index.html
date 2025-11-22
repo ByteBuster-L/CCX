@@ -13,9 +13,9 @@
                 extend: {
                     colors: {
                         escuela: {
-                            main: '#1E3A8A', // Azul oscuro institucional
-                            accent: '#F59E0B', // Amarillo/Dorado para resaltar
-                            light: '#EFF6FF', // Fondo suave
+                            main: '#1E3A8A', 
+                            accent: '#F59E0B', 
+                            light: '#EFF6FF', 
                         }
                     },
                     fontFamily: {
@@ -30,8 +30,6 @@
     
     <style>
         body { font-family: 'Inter', sans-serif; }
-        /* Ocultar elementos antes de la animación para evitar parpadeos */
-        .gsap-hero, .gsap-card { opacity: 0; transform: translateY(20px); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -148,115 +146,83 @@
         // Animación del Hero (Secuencial)
         const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
         
-        tl.to(".gsap-hero", {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.2 // Retraso entre cada elemento
-        });
-
+        
         // Animación de las Cards al hacer scroll
-        gsap.from(".gsap-card", {
-            scrollTrigger: {
-                trigger: ".gsap-card",
-                start: "top 80%", // Inicia cuando el elemento está al 80% de la pantalla
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2
-        });
+       
     </script>
-    <script>
-    // 1. URL de tu servidor (Backend)
+   <script>
+    // URL de tu Backend
     const API_URL = 'http://localhost:1337';
 
     async function cargarNoticias() {
-        try {
-            console.log("Intentando conectar con Strapi...");
+        // Obtenemos el contenedor
+        const contenedor = document.getElementById('contenedor-noticias');
+        if (!contenedor) return; // Si no existe el div, no hacemos nada
 
-            // 2. Pedimos las noticias (?populate=* es para traer la foto)
+        try {
+            // Petición al servidor
             const response = await fetch(`${API_URL}/api/noticias?populate=*`);
             
-            // 3. Convertimos la respuesta a JSON legible
-            const data = await response.json();
-            console.log("Datos recibidos:", data); // Míralo en la consola del navegador (F12)
+            // Si el servidor responde con error (ej. no está prendido Strapi)
+            if (!response.ok) throw new Error("No se pudo conectar con Strapi");
 
-            // Strapi a veces devuelve 'data.data' o solo 'data' dependiendo de la versión
+            const data = await response.json();
             const listaNoticias = data.data; 
 
-            const contenedor = document.getElementById('contenedor-noticias');
-            contenedor.innerHTML = ''; // Limpiamos el mensaje de "Cargando..."
+            // Limpiamos
+            contenedor.innerHTML = '';
 
-            // Si no hay noticias
             if (!listaNoticias || listaNoticias.length === 0) {
                 contenedor.innerHTML = '<p class="col-span-3 text-center text-gray-500">No hay avisos recientes.</p>';
                 return;
             }
 
-            // 4. Recorremos cada noticia para crear su HTML
+            // Renderizamos las tarjetas
             listaNoticias.forEach(item => {
-                // A veces Strapi mete los datos dentro de ".attributes", a veces directo.
-                // Este truco revisa ambas opciones para que no falle.
-                const noticia = item.attributes || item; 
-                
-                // --- MANEJO DE LA IMAGEN ---
-                // Buscamos la URL de la imagen con cuidado
-                let urlImagen = 'https://via.placeholder.com/400x250'; // Imagen por defecto si falla
-                
-                if (noticia.imagen) {
-                    // En Strapi v5 la imagen puede venir como array o como objeto
-                    const mediaData = Array.isArray(noticia.imagen) ? noticia.imagen[0] : noticia.imagen; // Si es array usa el primero, si no, el objeto
-                    
-                    if (mediaData && mediaData.url) {
-                         // Strapi guarda la url relativa (ej: /uploads/foto.jpg), hay que pegarle el dominio
-                        urlImagen = `${API_URL}${mediaData.url}`;
-                    } else if (mediaData && mediaData.attributes && mediaData.attributes.url) {
-                         // Soporte para versiones anteriores
-                        urlImagen = `${API_URL}${mediaData.attributes.url}`;
-                    }
+                // Strapi v5 usa documentId, v4 usa id
+                const idNoticia = item.documentId || item.id;
+                const datos = item.attributes || item; 
+
+                // Imagen
+                let urlImagen = 'https://via.placeholder.com/400x250';
+                if (datos.imagen) {
+                    const media = Array.isArray(datos.imagen) ? datos.imagen[0] : datos.imagen;
+                    if (media?.url) urlImagen = `${API_URL}${media.url}`;
                 }
 
-                // --- MANEJO DEL TEXTO (Rich Text) ---
-                // Si usaste "Blocks", el contenido es complejo. Si usaste "Texto", es simple.
-                // Aquí tomamos solo un resumen simple para no romper la tarjeta.
+                // Texto corto
                 let textoResumen = "Ver detalles...";
-                if (typeof noticia.contenido === 'string') {
-                    textoResumen = noticia.contenido.substring(0, 100) + '...';
-                } else if (Array.isArray(noticia.contenido)) {
-                    // Si es bloque de texto enriquecido, intentamos sacar el primer párrafo
-                    try {
-                        textoResumen = noticia.contenido[0].children[0].text.substring(0, 100) + '...';
-                    } catch(e) { console.log("Formato de texto complejo"); }
+                if (typeof datos.contenido === 'string') {
+                    textoResumen = datos.contenido.substring(0, 100) + '...';
                 }
 
-                // 5. Creamos la tarjeta visual
+                // HTML de la tarjeta
                 const cardHTML = `
                     <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col h-full">
                         <div class="h-48 overflow-hidden">
-                            <img src="${urlImagen}" alt="${noticia.titulo}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <img src="${urlImagen}" alt="${datos.titulo}" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
-                            <span class="text-xs font-bold text-escuela-accent mb-2 block">📅 ${noticia.fecha || 'Reciente'}</span>
-                            <h3 class="text-xl font-bold text-gray-900 mb-3">${noticia.titulo}</h3>
-                            <p class="text-gray-600 text-sm mb-4 flex-1">
-                                ${textoResumen}
-                            </p>
-                            <a href="detalle.html?id=${noticia.id}" class="text-escuela-main font-bold mt-auto hover:underline flex items-center gap-1">
+                            <span class="text-xs font-bold text-escuela-accent mb-2 block">📅 ${datos.fecha || 'Reciente'}</span>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">${datos.titulo}</h3>
+                            <p class="text-gray-600 text-sm mb-4 flex-1">${textoResumen}</p>
+                            <a href="pages/detalles.html?id=${idNoticia}" class="text-escuela-main font-bold mt-auto hover:underline">
+                                Leer más →
+                            </a>
                         </div>
                     </div>
                 `;
-                
                 contenedor.innerHTML += cardHTML;
             });
 
         } catch (error) {
-            console.error('Error grave cargando noticias:', error);
-            document.getElementById('contenedor-noticias').innerHTML = 
-                '<div class="col-span-3 text-center p-4 bg-red-50 text-red-600 rounded-lg border border-red-200">⚠️ Error conectando con el servidor. Revisa la consola (F12).</div>';
+            console.error('Error silencioso:', error);
+            // Si falla, mostramos un mensaje bonito en lugar de romper todo
+            contenedor.innerHTML = '<div class="col-span-3 text-center text-gray-400 py-10">Cargando noticias... (Asegúrate de tener Strapi encendido)</div>';
         }
     }
 
+    // Ejecutar cuando cargue la página
     document.addEventListener('DOMContentLoaded', cargarNoticias);
 </script>
 </body>
