@@ -1,0 +1,30 @@
+/* Fuente global */
+body { font-family: 'Inter', sans-serif; }
+
+/* Clases de utilidad para animaciones GSAP (Estado inicial invisible) */
+.gsap-hero, 
+.gsap-card,
+.gsap-fade-up,
+.gsap-reveal,
+.gsap-photo { 
+    opacity: 0; 
+}
+
+/* Transformaciones iniciales específicas */
+.gsap-hero, .gsap-fade-up { transform: translateY(20px); }
+.gsap-reveal { transform: translateY(30px); }
+.gsap-photo { transform: scale(0.95); }
+
+.contactoWhatsapp{
+    opacity: 0.6;
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+}
+
+.contactoWhatsapp:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
