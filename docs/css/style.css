@@ -1,0 +1,16 @@
+/* Fuente global */
+body { font-family: 'Inter', sans-serif; }
+
+/* Clases de utilidad para animaciones GSAP (Estado inicial invisible) */
+.gsap-hero, 
+.gsap-card,
+.gsap-fade-up,
+.gsap-reveal,
+.gsap-photo { 
+    opacity: 0; 
+}
+
+/* Transformaciones iniciales específicas */
+.gsap-hero, .gsap-fade-up { transform: translateY(20px); }
+.gsap-reveal { transform: translateY(30px); }
+.gsap-photo { transform: scale(0.95); }
