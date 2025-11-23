@@ -38,21 +38,52 @@
 <body class="bg-white text-gray-800">
 
     <nav class="bg-white shadow-md fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20">
-                <div class="flex items-center">
-                    <a href="index.html" class="text-2xl font-bold text-escuela-main flex items-center gap-2">
-                        <span class="text-4xl">🎓</span> ESCUELA [NOMBRE]
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="../index.html" class="text-gray-600 hover:text-escuela-main font-medium transition">Inicio</a>
-                    <a href="nosotros.html" class="text-escuela-main font-bold transition">Nosotros</a> <a href="#" class="text-gray-600 hover:text-escuela-main font-medium transition">Oferta Educativa</a>
-                    <a href="contacto.html" class="bg-escuela-main text-white px-5 py-2 rounded-full hover:bg-blue-900 transition font-medium">Contacto</a>
-                </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20">
+            <div class="flex items-center">
+                <a href="../index.html" class="text-2xl font-bold text-escuela-main flex items-center gap-2">
+                    <span class="text-4xl">💻</span> CCX
+                </a>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="../index.html" class="text-gray-600 hover:text-escuela-main font-medium transition">Inicio</a>
+                <a href="nosotros.html" class="text-gray-600 hover:text-escuela-main font-medium transition">Nosotros</a>
+                <a href="#" class="text-gray-600 hover:text-escuela-main font-medium transition">Oferta Educativa</a>
+                <a href="contacto.html" class="bg-escuela-main text-white px-5 py-2 rounded-full hover:bg-blue-900 transition font-medium">Contacto</a>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-gray-600 hover:text-escuela-main focus:outline-none p-2">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
+
+    <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300 opacity-0"></div>
+
+    <div id="mobile-drawer" class="fixed inset-y-0 left-0 w-64 bg-white z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="flex justify-between items-center p-6 border-b border-gray-100">
+            <span class="text-2xl font-bold text-escuela-main flex items-center gap-2">
+                <span class="text-2xl">💻</span> CCX
+            </span>
+            <button id="close-menu-btn" class="text-gray-500 hover:text-red-500 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="flex flex-col p-4 space-y-2">
+            <a href="../index.html" class="block px-4 py-3 text-lg font-medium text-gray-700 hover:bg-blue-50 hover:text-escuela-main rounded-lg transition">Inicio</a>
+            <a href="nosotros.html" class="block px-4 py-3 text-lg font-medium text-gray-700 hover:bg-blue-50 hover:text-escuela-main rounded-lg transition">Nosotros</a>
+            <a href="#" class="block px-4 py-3 text-lg font-medium text-gray-700 hover:bg-blue-50 hover:text-escuela-main rounded-lg transition">Oferta Educativa</a>
+            <a href="contacto.html" class="block px-4 py-3 text-lg font-medium bg-escuela-main text-white rounded-lg hover:bg-blue-900 transition text-center mt-4">Contacto</a>
+        </div>
+    </div>
+</nav>
 
     <div class="bg-escuela-light pt-32 pb-16 text-center">
         <div class="max-w-4xl mx-auto px-4">
@@ -208,6 +239,37 @@
             start: "top 80%",
             onEnter: batch => gsap.to(batch, {opacity: 1, y: 0, duration: 0.6, stagger: 0.15})
         });
+    </script>
+    <script>
+        // Lógica del Menú Lateral
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('mobile-overlay');
+        const body = document.body;
+
+        function toggleMenu() {
+            const isClosed = drawer.classList.contains('-translate-x-full');
+            
+            if (isClosed) {
+                // Abrir menú
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10); // Efecto fade-in
+                body.style.overflow = 'hidden'; // Evitar scroll
+            } else {
+                // Cerrar menú
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300); // Esperar animación
+                body.style.overflow = 'auto'; // Permitir scroll
+            }
+        }
+
+        // Eventos
+        if(menuBtn) menuBtn.addEventListener('click', toggleMenu);
+        if(closeBtn) closeBtn.addEventListener('click', toggleMenu);
+        if(overlay) overlay.addEventListener('click', toggleMenu);
     </script>
 </body>
 </html>
