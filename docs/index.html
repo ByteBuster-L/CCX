@@ -19,20 +19,21 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
                 <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold text-escuela-main flex items-center gap-2">
-                        <svg src="src/Pc.svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-escuela-main">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 6h12a2.25 2.25 0 012.25 2.25v8.25a2.25 2.25 0 01-2.25 2.25h-12a2.25 2.25 0 01-2.25-2.25V8.25A2.25 2.25 0 013.75 6z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M1.5 19.5h21" />
+                    <a href="../index.html" class="text-2xl font-bold text-escuela-main flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-escuela-main">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 17.25v-1.007M19.5 12h-15" />
+                            <rect x="3" y="3" width="18" height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         CCX
                     </a>
                 </div>
 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="pages/nosotros.html" class="text-gray-600 hover:text-escuela-main font-medium transition">Nosotros</a>
-                    <a href="#" class="text-gray-600 hover:text-escuela-main font-medium transition">Oferta Educativa</a>
-                    <a href="#" class="text-gray-600 hover:text-escuela-main font-medium transition">Avisos</a>
-                    <a href="pages/contacto.html" class="bg-escuela-main text-white px-5 py-2 rounded-full hover:bg-blue-900 transition font-medium">Contacto</a>
+                <div class="hidden md:flex items-center space-x-2">
+                    <a href="index.html" class="px-4 py-2 rounded-full text-gray-600 hover:bg-blue-50 hover:text-escuela-main font-medium transition duration-300">Inicio</a>
+                    <a href="pages/nosotros.html" class="px-4 py-2 rounded-full text-gray-600 hover:bg-blue-50 hover:text-escuela-main font-medium transition duration-300">Nosotros</a>
+                    <a href="pages/oferta.html" class="px-4 py-2 rounded-full text-gray-600 hover:bg-blue-50 hover:text-escuela-main font-medium transition duration-300">Oferta Educativa</a>
+                    <a href="pages/avisos.html" class="px-4 py-2 rounded-full border-2 border:bg-white bg-escuela-main text-white font-medium shadow-md transform scale-105 hover:bg-white hover:text-escuela-main hover:border-2 border-escuela-main">Avisos</a>
+                    <a href="pages/contacto.html" class="px-5 py-2 rounded-full border-2 border-escuela-main text-escuela-main hover:bg-escuela-main hover:text-white transition duration-300 font-medium ml-2">Contacto</a>
                 </div>
 
                 <div class="md:hidden flex items-center">
@@ -46,22 +47,24 @@
         </div>
 
         <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300 opacity-0"></div>
-
         <div id="mobile-drawer" class="fixed inset-y-0 left-0 w-64 bg-white z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
             <div class="flex justify-between items-center p-6 border-b border-gray-100">
                 <span class="text-2xl font-bold text-escuela-main flex items-center gap-2">
-                    <span class="text-2xl"></span> CCX
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-escuela-main">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 17.25v-1.007M19.5 12h-15" />
+                        <rect x="3" y="3" width="18" height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    CCX
                 </span>
                 <button id="close-menu-btn" class="text-gray-500 hover:text-red-500 transition">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
             <div class="flex flex-col p-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 text-lg font-medium text-gray-700 hover:bg-blue-50 hover:text-escuela-main rounded-lg transition">Inicio</a>
                 <a href="pages/nosotros.html" class="block px-4 py-3 text-lg font-medium text-gray-700 hover:bg-blue-50 hover:text-escuela-main rounded-lg transition">Nosotros</a>
-                <a href="#" class="block px-4 py-3 text-lg font-medium text-gray-700 hover:bg-blue-50 hover:text-escuela-main rounded-lg transition">Oferta Educativa</a>
-                <a href="#" class="block px-4 py-3 text-lg font-medium text-gray-700 hover:bg-blue-50 hover:text-escuela-main rounded-lg transition">Avisos</a>
+                <a href="pages/oferta.html" class="block px-4 py-3 text-lg font-medium text-gray-700 hover:bg-blue-50 hover:text-escuela-main rounded-lg transition">Oferta Educativa</a>
+                <a href="pages/avisos.html" class="block px-4 py-3 text-lg font-bold text-escuela-main bg-blue-50 rounded-lg transition hover:bg-white">Avisos</a>
                 <a href="pages/contacto.html" class="block px-4 py-3 text-lg font-medium bg-escuela-main text-white rounded-lg hover:bg-blue-900 transition text-center mt-4">Contacto</a>
             </div>
         </div>
@@ -234,6 +237,10 @@
             <p class="text-gray-500 text-xs">© 2024 Centro de Computación Xicotepec. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <a href="https://wa.me/527641040269">
+        <img src="https://th.bing.com/th/id/R.953a8c3e23cfd7540f2741454b1f61ea?rik=KEJJhgbL3FU%2bdw&pid=ImgRaw&r=0" alt="Contacto" class="contactoWhatsapp">
+    </a>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
