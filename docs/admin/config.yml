@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: feature/actualizacionContenido
 
 media_folder: "docs/public/uploads"
 public_folder: "/public/uploads"
