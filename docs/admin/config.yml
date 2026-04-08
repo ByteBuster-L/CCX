@@ -1,0 +1,30 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "docs/public/uploads"
+public_folder: "/public/uploads"
+
+collections:
+  # 1. SECCIÓN DE NOTICIAS (Estilo Instagram)
+  - name: "noticias"
+    label: "Noticias y Avisos"
+    folder: "docs/content/noticias"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Nombre del Autor", name: "author", widget: "string", default: "Administración CCX"}
+      - {label: "Foto del Autor (Avatar)", name: "avatar", widget: "image", required: false}
+      - {label: "Fecha", name: "date", widget: "datetime"}
+      - {label: "Foto de la Noticia", name: "image", widget: "image"}
+      - {label: "Descripción (Pie de foto)", name: "body", widget: "markdown"}
+
+  # 2. SECCIÓN DE GALERÍA
+  - name: "galeria"
+    label: "Galería de Fotos"
+    folder: "docs/content/galeria"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Título de la Foto", name: "title", widget: "string"}
+      - {label: "Imagen", name: "image", widget: "image"}
